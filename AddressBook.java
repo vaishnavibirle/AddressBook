@@ -32,23 +32,33 @@ public class AddressBook {
         list.add(obj);
     }
 
-    public static void editContact()
-    {
+    //Created method for editing contact details
+    public static void editContact() {
         //Scanner sc = new Scanner(System.in);
         System.out.println("Enter first name: ");
         String firstName = sc.nextLine();
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getFirstName().equalsIgnoreCase(firstName))
-            {
+            if (list.get(i).getFirstName().equalsIgnoreCase(firstName)) {
                 list.remove(i);
                 addContact();
-            }
-            else {
+            } else {
                 System.out.println("No data found in Address Book");
             }
         }
     }
 
+        //Creating deleteContact() for deleting contact details using first name
+        public static void deleteContact() {
+            System.out.println("Enter first name : ");
+            String firstName = sc.nextLine();
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).getFirstName().equalsIgnoreCase(firstName)) {
+                    list.remove(i);
+                } else {
+                    System.out.println("No data found");
+                }
+            }
+    }
 
     public static void main(String[] args) {
 
@@ -60,11 +70,8 @@ public class AddressBook {
         addContact();
         //Editing Contact
         editContact();
-
-
-
-
-
+        //deleting contact
+        deleteContact();
         System.out.println(list); //printing list
     }
 }
