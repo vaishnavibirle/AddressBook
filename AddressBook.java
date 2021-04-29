@@ -14,6 +14,16 @@ public class AddressBook {
     {
         System.out.println("Enter your firstName : ");
         String firstName = sc.nextLine();
+        for (int i = 0; i < list.size(); i++)
+        {
+            if (list.get(i).getFirstName().equalsIgnoreCase(firstName))
+            {
+                System.out.println("Name already exists. Try another name");
+                addPersons();
+                break;
+            }
+        }
+
         System.out.println("Enter your lastName : ");
         String lastName = sc.nextLine();
         System.out.println("Enter your address : ");
