@@ -32,6 +32,23 @@ public class AddressBook {
         list.add(obj);
     }
 
+    public static void editContact()
+    {
+        //Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first name: ");
+        String firstName = sc.nextLine();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getFirstName().equalsIgnoreCase(firstName))
+            {
+                list.remove(i);
+                addContact();
+            }
+            else {
+                System.out.println("No data found in Address Book");
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
 
@@ -40,13 +57,13 @@ public class AddressBook {
         System.out.println("WELCOME TO ADDRESS BOOK PROBLEM");
         //Adding new contact
         System.out.println("Enter details of new contact");
+        addContact();
+        //Editing Contact
+        editContact();
 
-        //Creating contact and adding new contact details to the list
-        int count = 1;
-        while (count == 1) {
-            addContact();
-            count--;
-        }
+
+
+
 
         System.out.println(list); //printing list
     }
