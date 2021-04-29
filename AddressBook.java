@@ -44,7 +44,6 @@ public class AddressBook {
 
     //Created method for editing contact details
     public static void editContact() {
-        //Scanner sc = new Scanner(System.in);
         System.out.println("Enter first name: ");
         String firstName = sc.nextLine();
         for (int i = 0; i < list.size(); i++) {
@@ -81,6 +80,16 @@ public class AddressBook {
         }
     }
 
+    //Called method searchByCity for searching contact details by city name
+    public void searchByCity() {
+        System.out.println("Enter City Name : ");
+        String city = sc.nextLine();
+        for (Contact list : list) {
+            if(((Contact) list).getCity().equals(city))
+                System.out.println(list);
+        }
+    }
+
     public static void main(String[] args) {
 
         AddressBook addressBook = new AddressBook();
@@ -88,6 +97,7 @@ public class AddressBook {
         System.out.println("WELCOME TO ADDRESS BOOK PROBLEM");
         //adding multiple persons
         addPersons();
-        System.out.println(list); //printing list
+        //Searching by city
+        addressBook.searchByCity();
     }
 }
